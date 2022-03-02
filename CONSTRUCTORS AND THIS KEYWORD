@@ -1,0 +1,98 @@
+//DEFAULT CONSTRUCTOR
+//Same Name As Class
+//No return Type
+//No input Arguments
+
+class Student
+{
+	public:
+	
+	int roll_number;
+	private:
+	int age;
+	
+	public:
+	//DEFAULT CONSTRUCTOR
+	Student()
+	{
+	  cout<<"Default Constructor called"<<endl;
+		
+	}
+	
+
+	Student(int r,int a)
+	{
+		cout<<"Constructor 3 called"<<endl;
+		roll_number=r;
+		age=a;
+		
+		
+	}
+	//this->holds the address of current element
+	Student(int roll_number)
+	{
+		cout<<"Constructor 4 called"<<endl;
+		this->roll_number=roll_number;
+		
+		
+		
+	}
+	
+	void display()
+	{
+		cout<<roll_number<<" "<<age;
+	}
+	
+	
+	int getAge()
+	{
+		return age;
+	}
+	void setAge(int a,int password)
+	{
+		if(password!=123)
+		{
+			return;
+		}
+		
+		if(a<0)
+		{
+			return;
+		}
+		
+		age=a;
+	}
+};
+
+
+OBJECT
+
+
+#include<iostream>
+using namespace std;
+#include "constructor_and_this_keyword.cpp"
+
+int main()
+{
+	Student s1;
+	s1.display();
+	
+	Student s2;
+	s2.display();
+	
+	Student *s3=new Student;
+	s3->display();
+	
+	
+	cout<<"Parameterised constructor called"<<endl;
+	Student s4(23);
+	
+	s4.display();
+	
+	
+	Student s5(123,456);
+	s5.display();
+	
+	Student s6(178);
+	s6.display();
+}
