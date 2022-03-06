@@ -1,0 +1,30 @@
+CLASS
+
+
+class student{
+	public:
+		int age;
+		const int rollNumber;
+		int &x;//age reference variable
+		//Initialisation list
+		
+		student(int r,int a):rollNumber(r),age(a),x(this->age)
+		{
+			
+		}
+		
+};
+
+
+
+
+OBJECT
+
+
+#include<iostream>
+using namespace std;
+#include"initialisation.cpp"
+int main()
+{
+	student s1(101,20);
+}
