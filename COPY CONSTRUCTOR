@@ -1,0 +1,60 @@
+CLASS
+
+
+class student{
+	int age;
+	char *name;
+	
+	public:
+		student(int age, char*name )
+		{
+			this->age=age;
+			//shallow copy====changing within the same array
+			//this->name=name;
+			
+			
+			//DEEP COPY
+			this->name=new char[strlen(name)+1];
+			strcpy(this->name,name);
+		}
+		//copy constructor
+		student (student const &s)
+		{
+			this->age=s.age;
+			//this->name=s.name;//SHALLOW COPY
+			
+			//DEEP COPY
+			this->name=new char[strlen(s.name)+1];
+			strcpy(this->name,s.name); 
+			
+		}
+		void display()
+		{
+			cout<<name<<" "<<age<<endl;
+			
+		}
+
+};
+
+
+
+
+OBJECT
+
+
+
+#include<iostream>
+using namespace std;
+#include<string.h>
+#include"shallowanddeepcopy.cpp"
+int  main()
+{
+	char name[]="abcd";
+	student s1(12,name);
+	s1.display();
+	name[3]='f';
+	student s2(s1);
+	s2.display();
+	
+	s1.display();
+}
